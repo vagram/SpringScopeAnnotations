@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="engine" class="spring.example.ioc.sources.Engine">
+    </bean>
+    <bean id="carBody" class="spring.example.ioc.sources.CarBody">
+    </bean>
+    <bean id="wheels" class="spring.example.ioc.sources.Wheels">
+    </bean>
+    <bean id="gearBox" class="spring.example.ioc.sources.GearBox">
+    </bean>
+    <bean id="name" class="spring.example.ioc.sources.Car">
+
+    </bean>
+    <bean id="go" class="spring.example.ioc.sources.Go" init-method="go">
+
+    </bean>
+
+    <bean id="car" scope="prototype" class="spring.example.ioc.sources.Car">
+        <constructor-arg name="engine" ref="engine"/>
+        <constructor-arg name="carBody" ref="carBody"/>
+        <constructor-arg name="wheels" ref="wheels"/>
+        <constructor-arg value="BMW" type="String"/>
+        <constructor-arg name="go" ref="go"/>
+        <constructor-arg name="gearBox" ref="gearBox">
+        </constructor-arg>
+    </bean>
+</beans>
